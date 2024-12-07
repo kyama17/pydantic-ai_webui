@@ -42,7 +42,7 @@ if prompt := st.chat_input("What is up?"):
     # Store and display the current prompt.
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
-        st.markdown(prompt)
+        st.markdown(st.session_state.messages)
 
     # Generate a response.
     result = agent.run_sync(prompt)
