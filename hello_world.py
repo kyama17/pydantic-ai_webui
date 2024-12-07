@@ -10,6 +10,7 @@ os.environ["GEO_API_KEY"] = st.secrets["GEO_API_KEY"]
 
 # Show title and description.
 st.title("Hello World Example")
+st.write("https://ai.pydantic.dev/#hello-world-example")
 
 # Apply nest_asyncio to allow nested event loops
 nest_asyncio.apply()
