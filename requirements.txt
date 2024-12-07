@@ -1,2 +1,3 @@
 streamlit
 pydantic_ai
+nest_asyncio
