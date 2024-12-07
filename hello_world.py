@@ -45,7 +45,7 @@ if prompt := st.chat_input("What is up?"):
         st.markdown(prompt)
 
     # Generate a response.
-    history = "\n".join([f"{message["role"]}: message["content"]" for message in st.session_state.messages])
+    history = "\n".join([f"{message['role']}: message['content']" for message in st.session_state.messages])
     result = agent.run_sync(f"""
     ## Chat history
     {history}
