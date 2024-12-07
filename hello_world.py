@@ -37,8 +37,7 @@ for message in st.session_state.messages:
 
 # Create a chat input field to allow the user to enter a message. This will display
 # automatically at the bottom of the page.
-if prompt := st.chat_input("What is up?"):
-    history = "\n".join([f"{message['role']}: message['content']" for message in st.session_state.messages])
+if prompt := st.chat_input("Where does 'hello world' come from?"):
     
     # Store and display the current prompt.
     st.session_state.messages.append({"role": "user", "content": prompt})
@@ -46,13 +45,7 @@ if prompt := st.chat_input("What is up?"):
         st.markdown(prompt)
 
     # Generate a response.
-    result = agent.run_sync(f"""
-    ## Chat history
-    {history}
-
-    ## Instruction
-    {prompt}
-    """)
+    result = agent.run_sync(prompt)
 
     # Stream the response to the chat using `st.chat_message`, then store it in session state.
     with st.chat_message("assistant"):
