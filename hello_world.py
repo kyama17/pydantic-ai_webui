@@ -47,8 +47,8 @@ if prompt := st.chat_input("What is up?"):
     # Generate a response.
     result = agent.run_sync(prompt)
 
-    # Stream the response to the chat using `st.write_stream`, then store it in 
-    # session state.
+    # Stream the response to the chat using `st.chat_message`, then store it in session state.
     with st.chat_message("assistant"):
-        response = st.write(result.data)
-    st.session_state.messages.append({"role": "assistant", "content": response})
+        response = result.data  # ここでレスポンスデータを取得
+        st.markdown(response)  # レスポンスを画面に表示
+    st.session_state.messages.append({"role": "assistant", "content": response})  # 正しいデータを保存
