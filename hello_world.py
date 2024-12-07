@@ -9,7 +9,7 @@ os.environ["WEATHER_API_KEY"] = st.secrets["WEATHER_API_KEY"]
 os.environ["GEO_API_KEY"] = st.secrets["GEO_API_KEY"]
 
 # Show title and description.
-st.title("💬 Chatbot")
+st.title("Hello World Example")
 
 # Apply nest_asyncio to allow nested event loops
 nest_asyncio.apply()
