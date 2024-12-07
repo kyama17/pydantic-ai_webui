@@ -13,11 +13,15 @@ st.title("💬 Chatbot")
 
 
 # Create an agent.
-agent = Agent(  
-    'gemini-1.5-flash',
-    system_prompt='Be concise, reply with one sentence.',  
-)
+@st.cache_resource
+def init_agent():
+    agent = Agent(  
+        'gemini-1.5-flash',
+        system_prompt='Be concise, reply with one sentence.',  
+    )
+    return agent
 
+agent = init_agent()
 
 # Create a session state variable to store the chat messages. This ensures that the
 # messages persist across reruns.
