@@ -2,7 +2,7 @@ import os
 
 import streamlit as st
 from pydantic_ai import Agent
-
+import nest_asyncio
 
 os.environ["GEMINI_API_KEY"] = st.secrets["GEMINI_API_KEY"]
 os.environ["WEATHER_API_KEY"] = st.secrets["WEATHER_API_KEY"]
@@ -11,6 +11,8 @@ os.environ["GEO_API_KEY"] = st.secrets["GEO_API_KEY"]
 # Show title and description.
 st.title("💬 Chatbot")
 
+# Apply nest_asyncio to allow nested event loops
+nest_asyncio.apply()
 
 # Create an agent.
 @st.cache_resource
