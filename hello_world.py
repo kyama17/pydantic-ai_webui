@@ -45,7 +45,14 @@ if prompt := st.chat_input("What is up?"):
         st.markdown(prompt)
 
     # Generate a response.
-    result = agent.run_sync(st.session_state.messages)
+    history = "\n".join([f"{message["role"]}: message["content"]" for message in st.session_state.messages])
+    result = agent.run_sync(f"""
+    ## Chat history
+    {history}
+
+    ## Instruction
+    {prompt}
+    """)
 
     # Stream the response to the chat using `st.chat_message`, then store it in session state.
     with st.chat_message("assistant"):
