@@ -1,3 +1,5 @@
+import streamlit as st
+
 from dataclasses import dataclass
 
 from pydantic import BaseModel, Field
